@@ -17,7 +17,17 @@ current_population = float(input("What is the current population?"))
 future_years = float(input("How many years in the future?"))
 
 #Calculate future population
-future_population = ((seconds_per_year / birth_rate) - (seconds_per_year / death_rate) +
-                     (seconds_per_year / migration_rate)) * future_years
+future_population = (((seconds_per_year / birth_rate) - (seconds_per_year / death_rate) +
+                     (seconds_per_year / migration_rate)) * future_years) + current_population
+future_population = int(future_population)
 
-#
+#Output future population to user
+print ("The future population is", future_population, "people.")
+
+#determine whether it has decreased or increased and output to user
+if future_population > current_population:
+    print("The population has increased.")
+elif future_population < current_population:
+      print("The population has decreased.")
+else:
+    print("The population has stayed the same.")
